@@ -1,0 +1,11 @@
+-- event_venue_association 테이블에 event_id 인덱스 추가
+CREATE INDEX idx_event_id ON event_venue_association (event_id);
+
+-- venue_seats 테이블에 venue_id 인덱스 추가
+CREATE INDEX idx_venue_id ON venue_seats (venue_id);
+
+-- user_tickets 테이블에 유니크 인덱스 (user_id, event_id) 추가
+CREATE UNIQUE INDEX uq_user_event ON user_tickets (user_id, event_id);
+
+-- user_tickets 테이블에 복합 인덱스 (event_id, event_seat_id) 추가
+CREATE INDEX idx_event_seat ON user_tickets (event_id, event_seat_id);
