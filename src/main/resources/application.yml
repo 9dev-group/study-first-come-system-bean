@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: firstcome
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/leaderboard?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: mpro
+    password: mpro1234
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 30000
+      connection-timeout: 3000
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: false
+
+server:
+  port: 8000
