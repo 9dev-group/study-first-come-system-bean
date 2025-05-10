@@ -110,7 +110,7 @@ sequenceDiagram
 - user_id와 event_id는 유니크합니다.
 - index
     - unique (user_id, event_id)
-    - event_id, event_seat_id
+    - unique (event_id, event_seat_id)
 
 | field         | type   | pk  | Description     | 
 |---------------|--------|-----|-----------------|

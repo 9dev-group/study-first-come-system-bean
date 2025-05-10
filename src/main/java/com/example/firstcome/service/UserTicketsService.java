@@ -1,5 +1,6 @@
 package com.example.firstcome.service;
 
+import com.example.firstcome.domain.UserTickets;
 import com.example.firstcome.domain.UserTicketsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,16 @@ public class UserTicketsService {
                 .stream()
                 .map(ticket -> ticket.getEventSeatId())
                 .toList();
+    }
+
+    @Transactional
+    public void createTicket(String userId, Long eventId, Long eventSeatId, int limitCount) {
+        var currentCount = userTicketsRepository.findByEventId(eventId).size();
+        if (limitCount == currentCount) {
+            throw new IllegalStateException("ticketing done");
+        }
+
+        userTicketsRepository.save(new UserTickets(userId, eventId, eventSeatId));
     }
 
 }

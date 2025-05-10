@@ -28,4 +28,8 @@ public class VenueSeatsService {
                 .toList();
     }
 
+    public VenueSeats get(Long eventSeatId, Long venueId) {
+        return venueSeatsRepository.findByIdAndVenueId(eventSeatId, venueId);
+    }
+
 }

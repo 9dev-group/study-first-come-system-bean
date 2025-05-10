@@ -5,9 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity(name = "user_tickets")
 @Getter
+@NoArgsConstructor
 public class UserTickets {
 
     @Id
@@ -16,4 +18,10 @@ public class UserTickets {
     private String userId;
     private Long eventId;
     private Long eventSeatId;
+
+    public UserTickets(String userId, Long eventId, Long eventSeatId) {
+        this.userId = userId;
+        this.eventId = eventId;
+        this.eventSeatId = eventSeatId;
+    }
 }

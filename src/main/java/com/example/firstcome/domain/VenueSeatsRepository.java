@@ -7,4 +7,5 @@ import java.util.List;
 public interface VenueSeatsRepository extends JpaRepository<VenueSeats, Long> {
 
     List<VenueSeats> findByVenueId(Long venueId);
+    VenueSeats findByIdAndVenueId(Long id, Long venueId);
 }
