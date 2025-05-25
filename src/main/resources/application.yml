@@ -8,7 +8,7 @@ spring:
     username: mpro
     password: mpro1234
     hikari:
-      maximum-pool-size: 10
+      maximum-pool-size: 30
       max-lifetime: 30000
       connection-timeout: 3000
   jpa:
@@ -19,6 +19,17 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: false
+
+  data:
+    redis:
+      url: redis://localhost:6379
+      client-type: lettuce
+      lettuce:
+        pool:
+          max-active: 30
+          max-idle: 8
+          min-idle: 1
+          max-wait: 1000ms
 
 server:
   port: 8000

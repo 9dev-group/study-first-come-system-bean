@@ -32,4 +32,9 @@ public class UserTicketsService {
         userTicketsRepository.save(new UserTickets(userId, eventId, eventSeatId));
     }
 
+    @Transactional
+    public void createTicketV2(String userId, Long eventId, Long eventSeatId) {
+        userTicketsRepository.save(new UserTickets(userId, eventId, eventSeatId));
+    }
+
 }
